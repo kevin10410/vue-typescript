@@ -4,20 +4,23 @@
     HelloWorld(
       :msg="msg"
       :value="value"
+      @double="double"
+      @triple="triple"
       @increase="increase"
       @decrease="decrease")
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Mixins } from 'vue-property-decorator';
 import HelloWorld from './components/HelloWorld.vue';
+import Mixin from './mixin/Mixin';
 
 @Component({
   components: {
     HelloWorld,
   },
 })
-export default class App extends Vue {
+export default class App extends Mixins(Mixin) {
   msg = 'Welcome to Your Vue.js + TypeScript App'
 
   value = 0
@@ -28,6 +31,16 @@ export default class App extends Vue {
 
   decrease() {
     this.value -= 1;
+  }
+
+  double() {
+    const { value } = this;
+    this.value = this.getDouble(value);
+  }
+
+  triple() {
+    const { value } = this;
+    this.value = this.getTriple(value);
   }
 }
 </script>
