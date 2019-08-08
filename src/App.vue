@@ -3,7 +3,9 @@
     img(alt="Vue logo" src="./assets/logo.png")
     HelloWorld(
       :msg="msg"
-      :value="value")
+      :value="value"
+      @increase="increase"
+      @decrease="decrease")
 </template>
 
 <script lang="ts">
@@ -19,6 +21,14 @@ export default class App extends Vue {
   msg = 'Welcome to Your Vue.js + TypeScript App'
 
   value = 0
+
+  increase() {
+    this.value += 1;
+  }
+
+  decrease() {
+    this.value -= 1;
+  }
 }
 </script>
 
