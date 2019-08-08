@@ -8,6 +8,12 @@
     button.hello__btn(
       @click="decrease"
     ) -
+    button.hello__btn(
+      @click="double"
+    ) x2
+    button.hello__btn(
+      @click="triple"
+    ) x3
 </template>
 
 <script lang="ts">
@@ -25,6 +31,14 @@ export default class HelloWorld extends Vue {
 
   decrease() {
     this.$emit('decrease');
+  }
+
+  double() {
+    this.$emit('double');
+  }
+
+  triple() {
+    this.$emit('triple');
   }
 }
 </script>
