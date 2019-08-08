@@ -1,7 +1,7 @@
 <template lang="pug">
   #app
     img(alt="Vue logo" src="./assets/logo.png")
-    HelloWorld(msg="Welcome to Your Vue.js + TypeScript App")
+    HelloWorld(:msg="msg")
 </template>
 
 <script lang="ts">
@@ -13,7 +13,9 @@ import HelloWorld from './components/HelloWorld.vue';
     HelloWorld,
   },
 })
-export default class App extends Vue {}
+export default class App extends Vue {
+  msg = 'Welcome to Your Vue.js + TypeScript App'
+}
 </script>
 
 <style lang="scss">
